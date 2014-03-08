@@ -1,0 +1,9 @@
+<h2>truncate <%= link_to "API link", "api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-truncate" %></h2>
+
+<ul>
+<%= @lines.each_with_index do |line, i| %>
+  <% if i < (@lines.size - 5) %>
+    <li><%= truncate((@lines[i] + @lines[i+1] + @lines[i+2] + @lines[i+3] + @lines[i+4]), length: 20) %></li>
+  <% end %>
+<% end %>
+</ul>

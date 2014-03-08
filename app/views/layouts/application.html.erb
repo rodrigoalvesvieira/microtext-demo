@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Microtext.js Demo</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+
+    <style type="text/css">
+      body { width: 800px ; margin: 0 auto;}
+      a, a:visited { color: #222; }
+      li  { padding: 2px 10px; display: inline-block; }
+
+      h1 a:hover {background: #edece9;}
+    </style>
+  </head>
+  <body>
+
+  <ul style="list-style:none">
+    <li><%= link_to "home", root_path %></li>
+    <li><%= link_to "truncate", truncate_path %></li>
+    <li><%= link_to "simple_format", simple_format_path %></li>
+    <li><%= link_to "excerpt", excerpt_path %></li>
+    <li><%= link_to "parameterize", parameterize_path %></li>
+  </ul>
+
+  <h1><%= link_to "Microtext.js", "https://github.com/rodrigoalvesvieira/microtext.js", target: "blank" %> Demo</h1>
+
+  <p>The goal of this demo project is to compare the processing time of a huge amount of strings processed by Rails helpers and other methods versus JavaScript methods (executed by the user's browser instead of the application server)</p>
+
+  <%= yield %>
+
+  <p>Dedicated to Airton Sampaio</p>
+
+  <footer>
+    <p>Microtext.js is released under the MIT License.</p>
+    <p>Copyright &copy; 2012-2014 Rodrigo Alves</p>
+  </footer>
+
+  </body>
+</html>

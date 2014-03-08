@@ -1,0 +1,9 @@
+<h2>parameterize <%= link_to "API link", "http://api.rubyonrails.org/classes/ActiveSupport/Inflector.html#method-i-parameterize" %></h2>
+
+<ul>
+<%= @lines.each_with_index do |line, i| %>
+  <% if i < (@lines.size - 5) %>
+    <li><%= ActiveSupport::Inflector.parameterize(@lines[i] + @lines[i+1] + @lines[i+2] + @lines[i+3] + @lines[i+4]) %></li>
+  <% end %>
+<% end %>
+</ul>

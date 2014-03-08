@@ -1,0 +1,9 @@
+<h2>simple_format <%= link_to "API link", "http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-simple_format" %></h2>
+
+<ul>
+<%= @lines.each_with_index do |line, i| %>
+  <% if i < (@lines.size - 5) %>
+    <li><%= simple_format((@lines[i] + @lines[i+1] + @lines[i+2] + @lines[i+3] + @lines[i+4]), class: "simple-formatted") %></li>
+  <% end %>
+<% end %>
+</ul>
