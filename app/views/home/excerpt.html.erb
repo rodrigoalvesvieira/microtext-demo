@@ -1,9 +1,22 @@
 <h2>excerpt <%= link_to "API link", "http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-excerpt" %></h2>
 
-<ul>
+<ul class="excerpt-elements">
 <%= @lines.each_with_index do |line, i| %>
   <% if i < (@lines.size - 5) %>
-    <li><%= excerpt((@lines[i] + @lines[i+1] + @lines[i+2] + @lines[i+3] + @lines[i+4]), @lines[i+1]) %></li>
+    <li><%= @lines[i] + @lines[i+1] + @lines[i+2] + @lines[i+3] + @lines[i+4] + @lines[i+1] %></li>
   <% end %>
 <% end %>
 </ul>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+  var excerptText;
+
+  $("excerpt-elements li").each(function () {
+    excerptText = Microtext.excerpt($(this).text(), "micro");
+    $(this).text(excerptText);
+  });
+})
+
+</script>

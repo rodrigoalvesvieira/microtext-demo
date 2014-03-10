@@ -1,9 +1,24 @@
 <h2>simple_format <%= link_to "API link", "http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#method-i-simple_format" %></h2>
 
-<ul>
+<ul class="simple-format-elements">
 <%= @lines.each_with_index do |line, i| %>
   <% if i < (@lines.size - 5) %>
-    <li><%= simple_format((@lines[i] + @lines[i+1] + @lines[i+2] + @lines[i+3] + @lines[i+4]), class: "simple-formatted") %></li>
+    <li><%= @lines[i] + @lines[i+1] + @lines[i+2] + @lines[i+3] + @lines[i+4] %></li>
   <% end %>
 <% end %>
 </ul>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+  var formattedText;
+
+  $(".simple-format-elements li").each(function () {
+
+    formattedText = Microtext.simpleFormat($(this).text(), { className: "simple-formatted" });
+    $(this).text("");
+    $(this).append(formattedText);
+  });
+})
+
+</script>
